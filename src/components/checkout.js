@@ -15,9 +15,13 @@ export default class Purchase extends Component {
           this.stripe
             .redirectToCheckout({
               items: [{ sku: "sku_ES8bcq6tg61DTY", quantity: 1 }],
-              // Using Localhost for demo environment.
-              successUrl: "http://localhost:8000/success",
-              cancelUrl: "http://localhost:8000/canceled"
+              /* 
+              Use Localhost when working locally.
+                successUrl: "http://localhost:8000/success",
+                cancelUrl: "http://localhost:8000/canceled"
+              */
+              successUrl: "https://gatsby-stripe-checkout.netlify.com/success",
+              cancelUrl: "https://gatsby-stripe-checkout.netlify.com/canceled"
             })
             .then(function(result) {
               if (result.error) {
